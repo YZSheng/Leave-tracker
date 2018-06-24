@@ -1,23 +1,29 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 sudo: false
 install: true
 env:
-  - NODE_VERSION="8.11.3" CI=true
+- NODE_VERSION="8.11.3" CI=true
 before_install:
-  - nvm install $NODE_VERSION
+- nvm install $NODE_VERSION
 before_script:
-  - export PATH=$TRAVIS_BUILD_DIR/bin:$PATH
+- export PATH=$TRAVIS_BUILD_DIR/bin:$PATH
 script:
-  - chmod +x ./bin/*.sh
-  - ./bin/build_frontend.sh
-  - ./bin/build_backend.sh
+- chmod +x ./bin/*.sh
+- "./bin/build_frontend.sh"
+- "./bin/build_backend.sh"
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   bundler: true
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+deploy:
+  provider: heroku
+  app: savanna-leave-tracker
+  skip_cleanup: true
+  api_key:
+    secure: 2NRIzIlag/n5bzYXDB+HMTrXgXITk1mUBVD6EvL/FQlR/zOkxcQeloBvGM/WIg1WPp2VJN0KfI3Zhhtn6wMeA7o7OsRHV4iLjQSka11qm5blvJDq6wdvGKKULcBmoli06FkPrII9LBT7mezZuZ5H9Hbe3SXRLnxOdFAvnjIUmDv5yC5PFABKbFYZMgTnj/YDqc3CfbSuhlmAV7Ky6/ZZ60llDGjan+F1PrIbuQOXaM8vh2VGa7cJoDV4NjpyI9NRIIPA4wOdKcv+c2P1wPU7q9AX0HNE0giolZqGkkYiJ/dKVOtt4xiT8WDKmz/RuqKTPcrhijg2KEEfvPRaRCueUdmpr18shlQD98lmCB7RymsEZzATiF7YvEyNnjBbwqvhHLU68bS90jkAomq1MVr4JCYvtlRc0DLOyDyox1eho9vWlQ93NwTYrOUZncKdlGznkkSnahzAnjf6yiFAYoroJhWl/Z0bS58j6/Bf3c8rIkQjmR2P4CQGrqtDh7W0eG4Qc6ey76liFAg3/GSMD0piTBetM8lXaxbsdrNVCBJki6u48IpPPdF2dVzulr6ZqoVpMeegqmeOiikxNxGb3dw7N73zOMWNEyTWaw7CWNmZdNEKc5E+UTIOwtKNTP8v5KHfY/MUgpr3vf/iHrz3MSqFLBIe3/KE63Qh2r8Gr5X7zM8=
