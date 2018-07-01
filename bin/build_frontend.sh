@@ -6,7 +6,7 @@ set -e
 echo "Building Frontend"
 cd src/main/resources/webapp
 npm install
-npm run test:ci
+npm run test
 npm run build
 if [ ! -d "../static" ]; then
     cd ..
