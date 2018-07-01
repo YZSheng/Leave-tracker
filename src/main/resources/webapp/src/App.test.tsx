@@ -2,6 +2,12 @@ import * as React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
 
-it('renders without crashing', () => {
-  expect(shallow(<App />)).toMatchSnapshot();
+describe('App component', () => {
+  it('renders without crashing', () => {
+    expect(shallow(<App />)).toMatchSnapshot();
+  });  
+
+  it('should fail', () => {
+    expect(true).toBeFalsy();
+  });
 });
