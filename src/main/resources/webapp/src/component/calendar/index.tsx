@@ -1,8 +1,8 @@
 import * as React from 'react';
-import BigCalendar from 'react-big-calendar';
 import * as moment from 'moment';
 import './index.css';
 
+const BigCalendar = require('react-big-calendar');
 BigCalendar.momentLocalizer(moment);
 
 const mockEvents = [
