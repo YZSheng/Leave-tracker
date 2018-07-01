@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -x
+set -e
+
 echo "Building Frontend"
 cd src/main/resources/webapp
 npm install
