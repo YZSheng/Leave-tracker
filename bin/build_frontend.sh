@@ -3,7 +3,7 @@
 echo "Building Frontend"
 cd src/main/resources/webapp
 npm install
-npm t
+npm run test:ci
 npm run build
 if [ ! -d "../static" ]; then
     cd ..
