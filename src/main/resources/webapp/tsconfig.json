@@ -26,5 +26,10 @@
     "webpack",
     "jest",
     "src/setupTests.ts"
+  ],
+  "include": [
+    "src/typings.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.ts"
   ]
 }
